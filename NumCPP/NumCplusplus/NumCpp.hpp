@@ -1,9 +1,9 @@
 #ifndef NUMCPP_H
 #define NUMCPP_H
 
+#include <NumCpp_Includes.hpp>
 #include <array1D.hpp>
-#include <iostream>
-#include <vector>
+#include <array2D.hpp>
 
 using std::cout;
 using std::vector;

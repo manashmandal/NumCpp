@@ -95,5 +95,6 @@
     <File Name="NumCpp.hpp"/>
     <File Name="array1D.hpp"/>
     <File Name="array2D.hpp"/>
+    <File Name="NumCpp_Includes.hpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

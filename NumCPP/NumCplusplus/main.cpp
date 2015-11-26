@@ -1,5 +1,8 @@
+#include <NumCpp_Includes.hpp>
 #include <NumCpp.hpp>
-#include <iostream>
+#include <array1D.hpp>
+#include <array2D.hpp>
+
 
 using namespace std;
 

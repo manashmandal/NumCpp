@@ -1,6 +1,7 @@
 #ifndef ARRAY1D_H
 #define ARRAY1D_H
 
+#include <NumCpp_Includes.hpp>
 #include <NumCpp.hpp>
 #include <array2D.hpp>
 

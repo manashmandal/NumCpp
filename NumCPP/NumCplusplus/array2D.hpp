@@ -1,11 +1,9 @@
 #ifndef ARRAY2D_H
 #define ARRAY2D_H
+
+#include <NumCpp_Includes.hpp>
 #include <NumCpp.hpp>
 #include <array1D.hpp>
-#include <iostream>
-#include <vector>
-
-using namespace std;
 
 template <class T> class array1D;
 
