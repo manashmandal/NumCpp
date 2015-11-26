@@ -92,5 +92,8 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="NumCpp.hpp"/>
+    <File Name="array1D.hpp"/>
+    <File Name="array2D.hpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
