@@ -11,13 +11,14 @@ namespace numcpp{
 	public:
 		typedef vector <T> oneDimensionalArray;
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
+		typedef vector < twoDimensionalArray > threeDimensionalArray;
 		
 		array2D(twoDimensionalArray &arr);
 		
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
-		
+		threeDimensionalArray var3D;
 		
 	};
 	

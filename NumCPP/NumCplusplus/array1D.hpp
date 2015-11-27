@@ -13,6 +13,7 @@ namespace numcpp{
 		//typedefs
 		typedef vector <T> oneDimensionalArray;
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
+		typedef vector < twoDimensionalArray > threeDimensionalArray;
 		
 		//ctor
 		array1D(oneDimensionalArray &arr);
@@ -20,6 +21,7 @@ namespace numcpp{
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
+		threeDimensionalArray var3D;
 		
 	};
 	
