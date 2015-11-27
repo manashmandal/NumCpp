@@ -14,7 +14,10 @@ namespace numcpp{
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
 		typedef vector < twoDimensionalArray > threeDimensionalArray;
 		
+		//ctors
 		array3D(threeDimensionalArray &arr);
+		array3D(oneDimensionalArray &arr);
+		array3D(twoDimensionalArray &arr);
 		
 	private:
 		oneDimensionalArray var1D;
@@ -26,6 +29,14 @@ namespace numcpp{
 	
 	template <class T> array3D<T>::array3D(threeDimensionalArray &arr){
 		var3D = arr;
+	}
+	
+	template <class T> array3D<T>::array3D(oneDimensionalArray &arr){
+		var1D = arr;
+	}
+	
+	template <class T> array3D<T>::array3D(twoDimensionalArray &arr){
+		var2D = arr;
 	}
 }
 
