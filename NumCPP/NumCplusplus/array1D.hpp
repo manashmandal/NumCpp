@@ -21,11 +21,21 @@ namespace numcpp{
 		
 		//Structure for storing sizeshape
 		struct sizeShape {
+		public:
 			size_t row;
 			size_t column;
 			size_t height;
+			
+			//Overloaded operator for sizeShape
+			friend std::ostream& operator<<(std::ostream& os, sizeShape &s){
+				os << "Row: " << s.row << endl
+			   << "Column: " << s.column << endl
+			   << "Height: " << s.height << endl;
+				return os;
+			}
 		};
 		
+	
 		//ctor
 		array1D(oneDimensionalArray &arr);
 		array1D(twoDimensionalArray &arr);

@@ -4,6 +4,7 @@
 //Important includes
 #include <iostream>
 #include <vector>
+#include <ostream>
 #include <array1D.hpp>
 #include <array2D.hpp>
 #include <array3D.hpp>
