@@ -8,7 +8,7 @@ using namespace numcpp;
 
 int main(void){
 	auto x = NumCpp<int>::array({1, 2, 3 ,4 ,5 ,6});
-	x.reshape(4, 4);
-	x.print(2);
-	return 0;
+	auto y = x.shape();
+	cout << y.row << endl;
+	cout << y.column << endl;
 }

@@ -18,6 +18,14 @@ namespace numcpp{
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
 		typedef vector < twoDimensionalArray > threeDimensionalArray;
 		
+		
+		//Structure for storing sizeshape
+		struct sizeShape {
+			size_t row;
+			size_t column;
+			size_t height;
+		};
+		
 		//ctor
 		array1D(oneDimensionalArray &arr);
 		array1D(twoDimensionalArray &arr);
@@ -26,43 +34,41 @@ namespace numcpp{
 		//print
 		void print(int dimension = 1);
 		
-		
-		//reshaping subroutine
-//		array2D<T> reshape(int r, int c){
-//			twoDimensionalArray t(r, oneDimensionalArray(c));
-//			array2D<T> temp(t);
-//			return temp;
-//		}
-//		
-//		array1D<T> reshape(int r, int c, int h){
-//			threeDimensionalArray t(h, twoDimensionalArray (r, oneDimensionalArray (c)));
-//			array3D<T> temp(t);
-//			return temp;
-//		}
-
-
+		//reshaper
 		array1D<T> reshape(size_t r);
 		array2D<T> reshape(size_t r, size_t c);
 		array3D<T> reshape(size_t r, size_t c, size_t h);
+		
+		//Returns shape structure
+		sizeShape shape(void) const;
 		
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
 		threeDimensionalArray var3D;
-		
+		sizeShape _shape;
 		
 	};
 	
 	template <class T> array1D<T>::array1D(oneDimensionalArray &arr){
 		var1D = arr;
+		_shape.row = 1;
+		_shape.column = var1D.size();
+		_shape.height = 0;
 	}
 	
 	template <class T> array1D<T>::array1D(twoDimensionalArray &arr){
 		var2D = arr;
+		_shape.row = var2D.size();
+		_shape.column = var2D[0].size();
+		_shape.height = 0;
 	}
 	
 	template <class T> array1D<T>::array1D(threeDimensionalArray &arr){
 		var3D = arr;
+		_shape.row = var3D.size();
+		_shape.column = var3D[0].size();
+		_shape.height = var3D[0][0].size();
 	}
 	
 	//Printing Definition
@@ -120,6 +126,12 @@ namespace numcpp{
 	}
 	
 	//Reshaping Subroutine [3D] (Later)
+	
+	
+	//Size returning function
+	template <class T> typename array1D<T>::sizeShape array1D<T>::shape(void) const {
+		return _shape;
+	}
 }
 
 #endif
