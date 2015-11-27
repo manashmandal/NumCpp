@@ -42,6 +42,9 @@ namespace numcpp{
 		
 		sizeShape shape(void) const;
 		
+		//Returns length
+		size_t len(void) const;
+		
 		
 	private:
 		oneDimensionalArray var1D;
@@ -97,6 +100,11 @@ namespace numcpp{
 	
 	template <class T> typename array2D<T>::sizeShape array2D<T>::shape(void) const {
 		return _shape;
+	}
+	
+	//Returns length
+	template <class T> size_t array2D<T>::len(void) const{
+		return var2D.size();
 	}
 }
 
