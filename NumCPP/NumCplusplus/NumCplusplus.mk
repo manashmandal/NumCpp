@@ -52,7 +52,7 @@ LibPath                := $(LibraryPathSwitch).
 AR       := C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/ar.exe rcu
 CXX      := C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/g++.exe
 CC       := C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/gcc.exe
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -g -O0 -std=c++11 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/as.exe

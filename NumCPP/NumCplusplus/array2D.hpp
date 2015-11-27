@@ -1,23 +1,29 @@
 #ifndef ARRAY2D_H
 #define ARRAY2D_H
 
-#include <NumCpp_Includes.hpp>
-#include <NumCpp.hpp>
-#include <array1D.hpp>
+#include <iostream>
+#include <vector>
 
-template <class T> class array1D;
+using namespace std;
 
 namespace numcpp{
 	template <class T> class array2D{
+	public:
 		typedef vector <T> oneDimensionalArray;
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
 		
-	public:
-		array2D(void){
-			cout << "Hello array2d" << endl;
-		}
-	};	
+		array2D(twoDimensionalArray &arr);
+		
+	private:
+		oneDimensionalArray var1D;
+		twoDimensionalArray var2D;
+		
+		
+	};
+	
+	template <class T> array2D<T>::array2D(twoDimensionalArray &arr){
+		var2D = arr;
+	}
 }
-
 
 #endif
