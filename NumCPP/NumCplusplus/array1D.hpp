@@ -26,22 +26,30 @@ namespace numcpp{
 		//print
 		void print(int dimension = 1);
 		
-		array2D<T> reshape(int r, int c){
-			twoDimensionalArray t(r, oneDimensionalArray(c));
-			array2D<T> temp(t);
-			return temp;
-		}
 		
-		array1D<T> reshape(int r, int c, int h){
-			threeDimensionalArray t(h, twoDimensionalArray (r, oneDimensionalArray (c)));
-			array3D<T> temp(t);
-			return temp;
-		}
+		//reshaping subroutine
+//		array2D<T> reshape(int r, int c){
+//			twoDimensionalArray t(r, oneDimensionalArray(c));
+//			array2D<T> temp(t);
+//			return temp;
+//		}
+//		
+//		array1D<T> reshape(int r, int c, int h){
+//			threeDimensionalArray t(h, twoDimensionalArray (r, oneDimensionalArray (c)));
+//			array3D<T> temp(t);
+//			return temp;
+//		}
+
+
+		array1D<T> reshape(size_t r);
+		array2D<T> reshape(size_t r, size_t c);
+		array3D<T> reshape(size_t r, size_t c, size_t h);
 		
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
 		threeDimensionalArray var3D;
+		
 		
 	};
 	
@@ -57,7 +65,7 @@ namespace numcpp{
 		var3D = arr;
 	}
 	
-	
+	//Printing Definition
 	template <class T> void array1D<T>::print(int dimension){
 		switch(dimension){
 			case 1:
@@ -80,6 +88,38 @@ namespace numcpp{
 				break;
 		}
 	}
+	
+	//Reshaping subroutines [1D]
+	template <class T> array1D<T> array1D<T>::reshape(size_t r){
+		oneDimensionalArray t;
+		for (size_t i = 0; i < r; i++){
+			t.push_back(var1D[i]);
+		}
+		array1D<T> temp(t);
+		return temp;
+	}
+	
+	//Reshaping Subroutine [2D]
+	template <class T> array2D<T> array1D<T>::reshape(size_t r, size_t c){
+		typename oneDimensionalArray::iterator it = var1D.begin();
+		twoDimensionalArray t(r, oneDimensionalArray (c));
+		for (size_t i = 0; i < r; i++){
+			for (size_t j = 0; j < c; j++){
+				if (it == var1D.end()){
+					array1D::var2D = t;
+					array2D<T> temp(t);
+					return temp;
+				}
+				(t[i])[j] = *it;
+				it++;
+			}
+		}
+		array1D::var2D = t;
+		array2D<T> temp(t);
+		return temp;
+	}
+	
+	//Reshaping Subroutine [3D] (Later)
 }
 
 #endif

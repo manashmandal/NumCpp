@@ -7,15 +7,8 @@ using namespace numcpp;
 
 
 int main(void){
-
-	typedef vector <double> one;
-	typedef vector < one > two;
-	
-	two bal({{1, 2}, {2, 3}});
-	array2D<double> abal(bal);
-	
-
-	
-
-
+	auto x = NumCpp<int>::array({1, 2, 3 ,4 ,5 ,6});
+	x.reshape(4, 4);
+	x.print(2);
+	return 0;
 }
