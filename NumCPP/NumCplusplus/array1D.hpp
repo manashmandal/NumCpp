@@ -40,6 +40,8 @@ namespace numcpp{
 		array1D(oneDimensionalArray &arr);
 		array1D(twoDimensionalArray &arr);
 		array1D(threeDimensionalArray &arr);
+		array1D(void) {}
+		//Copy Constructor
 		
 		//print
 		void print(int dimension = 1);
@@ -49,11 +51,36 @@ namespace numcpp{
 		array2D<T> reshape(size_t r, size_t c);
 		array3D<T> reshape(size_t r, size_t c, size_t h);
 		
+		
 		//Returns shape structure
 		sizeShape shape(void) const;
 		
+		//Returns row/column
+		size_t getRow(void) const;
+		size_t getColumn(void) const;
+		size_t getHeight(void) const;
+		
 		//returns length
 		size_t len(void) const;
+		
+		//Operator = overloading for copying object
+		array1D &operator = (array1D &other){
+			var1D = other.var1D;
+			var2D = other.var2D;
+			var3D = other.var3D;
+			_shape = other._shape;
+			return *this;
+		}
+		
+		//returns corresponding indexed value [without bound checking]
+		T& operator[](size_t index);
+		
+		void clear(void);
+		
+		~array1D(void){
+			
+		}
+		
 		
 	private:
 		oneDimensionalArray var1D;
@@ -150,6 +177,26 @@ namespace numcpp{
 	template <class T> size_t array1D<T>::len(void) const{
 		return var1D.size();
 	}
+	
+	//subscript operator overloading
+	template <class T> T& array1D<T>::operator [](size_t index){
+		//Error checking [LATER]
+		return var1D[index];
+	}
+	
+	template <class T> size_t array1D<T>::getColumn(void) const {
+		return shape().column;
+	}
+	
+	template <class T> size_t array1D<T>::getRow(void) const {
+		return shape().row;
+	}
+	
+	template <class T> size_t array1D<T>::getHeight(void) const {
+		return shape().height;
+	}
+	
+
 }
 
 #endif
