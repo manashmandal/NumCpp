@@ -49,8 +49,10 @@ namespace numcpp{
 		//Fills the array with a specific element
 		void fill(T t);
 		
-		//Transposes the array
-		void transpose(void);
+		
+		//Returns array2D class
+		array2D<T> transpose(void);
+		
 		
 		//gets column and rows
 		size_t getColumn(void) const;
@@ -136,18 +138,25 @@ namespace numcpp{
 		return _shape.row;
 	}
 	
-	//Transposes the matrix
-	// Slow performance [Need optimization]
-	template <class T> void array2D<T>::transpose(void){
-		swap(_shape.column, _shape.row);
-		twoDimensionalArray tempMatrix(getRow(), oneDimensionalArray (getColumn()));
-		for (size_t i = 0; i < getRow(); i++){
-			for (size_t j = 0; j < getColumn(); j++){
+	
+	
+	//Transposes the matrix, returns a temp class
+	template <class T> array2D<T> array2D<T>::transpose(void){
+		size_t col = _shape.row;
+		size_t row = _shape.column;
+		
+		twoDimensionalArray tempMatrix(row, oneDimensionalArray(col));
+		
+		for (size_t i = 0; i < row; i++){
+			for (size_t j = 0; j < col; j++){
 				tempMatrix[i][j] = var2D[j][i];
 			}
 		}
-		var2D = tempMatrix;
+		
+		array2D<T> temp(tempMatrix);
+		return temp;	
 	}
+
 }
 
 #endif
