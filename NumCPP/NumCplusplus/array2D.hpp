@@ -9,6 +9,7 @@ using namespace std;
 namespace numcpp{
 	template <class T> class array1D;
 	template <class T> class array3D;
+	template <class T> class NumCpp;
 	
 	template <class T> class array2D{
 	public:
@@ -45,11 +46,21 @@ namespace numcpp{
 		//Returns length
 		size_t len(void) const;
 		
+		//Fills the array with a specific element
+		void fill(T t);
+		
+		//Transposes the array
+		void transpose(void);
+		
+		//gets column and rows
+		size_t getColumn(void) const;
+		size_t getRow(void) const;
 		
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
 		threeDimensionalArray var3D;
+		
 		
 		sizeShape _shape;
 		
@@ -105,6 +116,37 @@ namespace numcpp{
 	//Returns length
 	template <class T> size_t array2D<T>::len(void) const{
 		return var2D.size();
+	}
+	
+	//Fills up the array with a specific element
+	template <class T> void array2D<T>::fill(T t){
+		for (size_t i = 0; i < var2D.size(); i++){
+			for (size_t j = 0; j < var2D[i].size(); j++){
+				var2D[i][j] = t;
+			}
+		}
+	}
+	
+	//Return row and column
+	template <class T> size_t array2D<T>::getColumn(void) const {
+		return _shape.column;
+	}
+	
+	template <class T> size_t array2D<T>::getRow(void) const {
+		return _shape.row;
+	}
+	
+	//Transposes the matrix
+	// Slow performance [Need optimization]
+	template <class T> void array2D<T>::transpose(void){
+		swap(_shape.column, _shape.row);
+		twoDimensionalArray tempMatrix(getRow(), oneDimensionalArray (getColumn()));
+		for (size_t i = 0; i < getRow(); i++){
+			for (size_t j = 0; j < getColumn(); j++){
+				tempMatrix[i][j] = var2D[j][i];
+			}
+		}
+		var2D = tempMatrix;
 	}
 }
 

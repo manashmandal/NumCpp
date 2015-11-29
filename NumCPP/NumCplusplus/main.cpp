@@ -9,7 +9,13 @@ typedef NumCpp<int> _int;
 
 int main(void){
 	
-	auto balsal = NumCpp<int>::array({ {1, 2, 3}, {2, 4 ,5}});
+	array2D<int> balsal = NumCpp<int>::array({ {1, 2, 3}, {2, 4 ,5}});
+	
+	balsal.transpose();
+	
+	balsal.print();
+	
+	
 	
 	
 	return 0;

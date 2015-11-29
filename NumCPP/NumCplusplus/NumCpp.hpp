@@ -33,6 +33,7 @@ namespace numcpp{
 		static oneDimensionalArray range(int number);
 		
 		
+		
 	};
 	
 	template <class T> array1D<T> NumCpp<T>::array(oneDimensionalArray arr){
@@ -65,7 +66,6 @@ namespace numcpp{
 		}
 		return t;
 	}
-	
 	
 }
 
