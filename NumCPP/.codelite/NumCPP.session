@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCPP.workspace">
-  <int Value="2" Name="m_selectedTab"/>
+  <int Value="4" Name="m_selectedTab"/>
   <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCPP.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\main.cpp" Name="FileName"/>
-      <int Value="5" Name="FirstVisibleLine"/>
-      <int Value="1" Name="CurrentLine"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="15" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\NumCpp.hpp" Name="FileName"/>
-      <int Value="7" Name="FirstVisibleLine"/>
+      <int Value="15" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\array1D.hpp" Name="FileName"/>
-      <int Value="69" Name="FirstVisibleLine"/>
-      <int Value="76" Name="CurrentLine"/>
+      <int Value="64" Name="FirstVisibleLine"/>
+      <int Value="195" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -34,7 +34,7 @@
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\array3D.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="10" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

@@ -29,6 +29,9 @@ namespace numcpp{
 		static size_t len(array1D<T> &obj);
 		static size_t len(array2D<T> &obj);
 		
+		//Returns a oneDimensionalArray creating a list of number given in the input
+		static oneDimensionalArray &range(int number);
+		
 		
 	};
 	
@@ -53,6 +56,14 @@ namespace numcpp{
 	
 	template <class T> size_t NumCpp<T>::len(array2D<T> &obj){
 		return obj.len();
+	}
+	
+	template <class T> typename NumCpp<T>::oneDimensionalArray& NumCpp<T>::range(int number){
+		oneDimensionalArray t;
+		for (int i = 0; i < number; i++){
+			t.push_back(i);
+		}
+		return t;
 	}
 }
 
