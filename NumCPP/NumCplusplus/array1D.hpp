@@ -52,6 +52,8 @@ namespace numcpp{
 		array3D<T> reshape(size_t r, size_t c, size_t h);
 		
 		
+		
+		
 		//Returns shape structure
 		sizeShape shape(void) const;
 		
@@ -75,12 +77,15 @@ namespace numcpp{
 		//returns corresponding indexed value [without bound checking]
 		T& operator[](size_t index);
 		
+		//Clears the array
 		void clear(void);
 		
 		~array1D(void){
 			
 		}
 		
+		
+		void fill(T t);
 		
 	private:
 		oneDimensionalArray var1D;
@@ -196,6 +201,13 @@ namespace numcpp{
 		return shape().height;
 	}
 	
+	
+	//Fills the array with one type of element
+	template <class T> void array1D<T>::fill(T t){
+		for (size_t i = 0; i < var1D.size(); i++){
+			var1D[i] = t;
+		}
+	}
 
 }
 
