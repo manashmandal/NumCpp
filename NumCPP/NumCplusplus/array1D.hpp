@@ -95,7 +95,7 @@ namespace numcpp{
 		}
 		
 		
-		//Operator overloading
+		//Operator overloading (concatenates the elements in one class variable)
 		friend array1D<T> operator+(array1D<T> first, array1D<T> second){
 			oneDimensionalArray t = first.getArray1D();
 			array1D<T> temp(t);

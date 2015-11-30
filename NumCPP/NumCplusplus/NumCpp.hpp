@@ -34,7 +34,7 @@ namespace numcpp{
 		static oneDimensionalArray range(int number);
 		
 		//UnWrapper Function
-		static array1D<T> concatenate(array1D<T> &arr){
+		static array1D<T>& concatenate(array1D<T> &arr){
 			return arr;
 		}
 		
