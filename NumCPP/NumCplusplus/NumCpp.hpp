@@ -33,10 +33,8 @@ namespace numcpp{
 		//Returns a oneDimensionalArray creating a list of number given in the input
 		static oneDimensionalArray range(int number);
 		
-		//Concatenation 
-		template <class... Args> array1D<T> f(vector<T> bal, Args... args){
-			
-		}
+		//Concatenation Method with variable input arguments 
+		template <class ... Args> static array1D<T> concatenate(array1D<T> &arr, Args... args);
 		
 	};
 	
@@ -71,7 +69,10 @@ namespace numcpp{
 		return t;
 	}
 	
-	
+	//Definition for variable arguments
+	template <class T, class ... Args> static array1D<T> concatenate(array1D<T> &arg, Args... args){
+		
+	}
 	
 }
 
