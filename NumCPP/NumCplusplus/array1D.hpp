@@ -42,7 +42,7 @@ namespace numcpp{
 		array1D(threeDimensionalArray &arr);
 		
 		
-		array1D(void) {}
+		//array1D(void) {}
 		//Copy Constructor
 		
 		//print
@@ -96,7 +96,7 @@ namespace numcpp{
 		
 		
 		//Operator overloading
-		friend array1D<T> operator+(array1D<T> &first, array1D<T> &second){
+		friend array1D<T> operator+(array1D<T> first, array1D<T> second){
 			oneDimensionalArray t = first.getArray1D();
 			array1D<T> temp(t);
 			oneDimensionalArray *ref_t = &t;

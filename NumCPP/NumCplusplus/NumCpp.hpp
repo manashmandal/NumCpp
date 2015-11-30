@@ -34,25 +34,15 @@ namespace numcpp{
 		static oneDimensionalArray range(int number);
 		
 		//UnWrapper Function
-		static array1D<T> concatenate(array1D<T> arr){
-			
+		static array1D<T> concatenate(array1D<T> &arr){
+			return arr;
 		}
-		
 		
 		//Concatenation Method with variable input arguments 
-		template <class ... Args> static array1D<T> concatenate(array1D<T> arr, Args ... args){
-			
+		template <class ... Args> static array1D<T> concatenate(array1D<T> &arr, Args& ... args){
+			array1D<T> bal = arr;
+			return bal + concatenate(args...);
 		}
-		
-		//Store elements From array1D in static_vector_1D
-		static void storeElement(array1D<T> arg);
-		
-		
-
-		
-	private:
-		static vector <T> static_vector_1D;
-		static int count;
 		
 	};
 	
@@ -88,13 +78,6 @@ namespace numcpp{
 	}
 	
 	
-	
-	//Stores element in static_vector_1D
-	
-	
-	//Initializing the static vector
-	template <class T> vector<T> NumCpp<T>::static_vector_1D;
-	template <class T> int NumCpp<T>::count = 0;
 }
 
 
