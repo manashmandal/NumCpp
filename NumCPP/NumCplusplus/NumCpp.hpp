@@ -33,8 +33,26 @@ namespace numcpp{
 		//Returns a oneDimensionalArray creating a list of number given in the input
 		static oneDimensionalArray range(int number);
 		
+		//UnWrapper Function
+		static array1D<T> concatenate(array1D<T> arr){
+			
+		}
+		
+		
 		//Concatenation Method with variable input arguments 
-		template <class ... Args> static array1D<T> concatenate(array1D<T> &arr, Args... args);
+		template <class ... Args> static array1D<T> concatenate(array1D<T> arr, Args ... args){
+			
+		}
+		
+		//Store elements From array1D in static_vector_1D
+		static void storeElement(array1D<T> arg);
+		
+		
+
+		
+	private:
+		static vector <T> static_vector_1D;
+		static int count;
 		
 	};
 	
@@ -69,11 +87,14 @@ namespace numcpp{
 		return t;
 	}
 	
-	//Definition for variable arguments
-	template <class T, class ... Args> static array1D<T> concatenate(array1D<T> &arg, Args... args){
-		
-	}
 	
+	
+	//Stores element in static_vector_1D
+	
+	
+	//Initializing the static vector
+	template <class T> vector<T> NumCpp<T>::static_vector_1D;
+	template <class T> int NumCpp<T>::count = 0;
 }
 
 

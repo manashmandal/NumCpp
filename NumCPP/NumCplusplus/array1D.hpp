@@ -40,6 +40,8 @@ namespace numcpp{
 		array1D(oneDimensionalArray &arr);
 		array1D(twoDimensionalArray &arr);
 		array1D(threeDimensionalArray &arr);
+		
+		
 		array1D(void) {}
 		//Copy Constructor
 		
@@ -84,8 +86,25 @@ namespace numcpp{
 			
 		}
 		
-		
+		//Fills the array with specific element
 		void fill(T t);
+		
+		//Returns the stored oneDimensionalArray
+		oneDimensionalArray getArray1D (void){
+			return var1D;
+		}
+		
+		
+		//Operator overloading
+		friend array1D<T> operator+(array1D<T> &first, array1D<T> &second){
+			oneDimensionalArray t = first.getArray1D();
+			array1D<T> temp(t);
+			oneDimensionalArray *ref_t = &t;
+			for (size_t i = 0; i < second.getColumn(); i++){
+				ref_t->push_back(second[i]);
+			}
+			return t;
+		}
 		
 	private:
 		oneDimensionalArray var1D;
@@ -115,6 +134,9 @@ namespace numcpp{
 		_shape.column = var3D[0].size();
 		_shape.height = var3D[0][0].size();
 	}
+	
+	
+	
 	
 	//Printing Definition
 	template <class T> void array1D<T>::print(int dimension){
@@ -208,7 +230,7 @@ namespace numcpp{
 			var1D[i] = t;
 		}
 	}
-
+	
 }
 
 #endif
