@@ -8,6 +8,7 @@
 #include <array1D.hpp>
 #include <array2D.hpp>
 #include <array3D.hpp>
+#include <stdarg.h>
 
 using namespace std;
 
@@ -32,7 +33,10 @@ namespace numcpp{
 		//Returns a oneDimensionalArray creating a list of number given in the input
 		static oneDimensionalArray range(int number);
 		
-		
+		//Concatenation 
+		template <class... Args> array1D<T> f(vector<T> bal, Args... args){
+			
+		}
 		
 	};
 	
@@ -66,6 +70,8 @@ namespace numcpp{
 		}
 		return t;
 	}
+	
+	
 	
 }
 
