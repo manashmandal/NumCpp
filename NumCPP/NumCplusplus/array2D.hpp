@@ -58,6 +58,13 @@ namespace numcpp{
 		size_t getColumn(void) const;
 		size_t getRow(void) const;
 		
+		//Overloading double subscripting operator for matrix
+		oneDimensionalArray& operator[](size_t index);
+		
+		
+		//Array multiplication [Element wise, not MATRIX Multiplication]
+		array2D<T> operator*(array2D<T> &other);
+
 	private:
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
@@ -155,6 +162,23 @@ namespace numcpp{
 		
 		array2D<T> temp(tempMatrix);
 		return temp;	
+	}
+	
+	//Returns an element of given index [overloaded subscript operator]
+	template <class T> typename array2D<T>::oneDimensionalArray& array2D<T>::operator[](size_t index){
+		return var2D[index];
+	}
+	
+	//Returns a 2D array of multiplied elements 
+	template <class T> array2D<T> array2D<T>::operator*(array2D<T> &other){
+		twoDimensionalArray t(other.getRow(), oneDimensionalArray(other.getColumn()));
+		array2D<T> temp(t);
+		for (size_t i = 0; i < other.getRow(); i++){
+			for (size_t j = 0; j < other.getColumn(); j++){
+				temp[i][j] = (*this)[i][j] * other[i][j];
+			}
+		}
+		return temp;
 	}
 
 }

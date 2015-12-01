@@ -44,6 +44,8 @@ namespace numcpp{
 			return bal + concatenate(args...);
 		}
 		
+		
+		
 	};
 	
 	template <class T> array1D<T> NumCpp<T>::array(oneDimensionalArray arr){
