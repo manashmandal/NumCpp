@@ -103,6 +103,7 @@ namespace numcpp{
 			for (size_t i = 0; i < second.getColumn(); i++){
 				ref_t->push_back(second[i]);
 			}
+			delete[] ref_t;
 			return t;
 		}
 		
