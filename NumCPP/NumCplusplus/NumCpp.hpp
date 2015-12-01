@@ -40,8 +40,8 @@ namespace numcpp{
 		
 		//Concatenation Method with variable input arguments 
 		template <class ... Args> static array1D<T> concatenate(array1D<T> &arr, Args& ... args){
-			array1D<T> bal = arr;
-			return bal + concatenate(args...);
+			array1D<T> t = arr;
+			return t + concatenate(args...);
 		}
 		
 		//Returns a 2D array containing ones and zeroes
