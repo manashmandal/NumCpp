@@ -44,6 +44,13 @@ namespace numcpp{
 			return bal + concatenate(args...);
 		}
 		
+		//Returns a 2D array containing ones and zeroes
+		static array2D<T> ones(size_t row, size_t col);
+		static array2D<T> zeroes(size_t row, size_t col);
+		
+		//Returns a 1D array containing ones
+		static array1D<T> ones(size_t col);
+		static array1D<T> zeroes(size_t col);
 		
 		
 	};
@@ -77,6 +84,46 @@ namespace numcpp{
 			t.push_back(i);
 		}
 		return t;
+	}
+	
+	template <class T> array2D<T> NumCpp<T>::ones(size_t row, size_t col){
+		twoDimensionalArray t(row, oneDimensionalArray(col));
+		array2D<T> temp(t);
+		for (size_t i = 0; i < row; i++){
+			for (size_t j = 0; j < col; j++){
+				temp[i][j] = (T) 1.00;
+			}
+		}
+		return temp;
+	}
+	
+	template <class T> array2D<T> NumCpp<T>::zeroes(size_t row, size_t col){
+		twoDimensionalArray t (row, oneDimensionalArray(col));
+		array2D<T> temp(t);
+		for (size_t i = 0; i < row; i++){
+			for (size_t j = 0 ; j < col ; j++){
+				temp[i][j] = 0;
+			}
+		}
+		return temp;
+	}
+	
+	template <class T> array1D<T> NumCpp<T>::ones(size_t col){
+		oneDimensionalArray t(col);
+		array1D<T> temp(t);
+		for (size_t i = 0; i < col ; i++){
+			t[i] = (T) 1.00;
+		}
+		return temp;
+	}
+	
+	template <class T> array1D<T> NumCpp<T>::zeroes(size_t col){
+		oneDimensionalArray t(col);
+		array1D<T> temp(t);
+		for (size_t i = 0; i < col; i++){
+			temp[i] = 0;
+		}
+		return temp;
 	}
 	
 	

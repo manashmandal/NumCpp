@@ -12,15 +12,15 @@ typedef NumCpp<int> _int;
 
 int main(void){
 	
-	array2D<int> arr = NumCpp<int>::array({{1, 2, 3}, {3, 4, 5}});
+	array2D<double> x = NumCpp<double>::ones(2, 3);
 	
-	array1D<double> a = NumCpp<double>::array( {1.1 , 2.2 , 3.3} );
-	a.print();
+	array2D<int> bal = NumCpp<int>::ones(5,4);
 	
-	
-	
-	auto bal = arr * arr;
 	bal.print();
+	
+	array2D<int> ze = NumCpp<int>::zeroes(2,3);
+	
+	ze.print();
 	
 	return 0;
 }

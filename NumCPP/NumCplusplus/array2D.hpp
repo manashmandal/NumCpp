@@ -64,6 +64,8 @@ namespace numcpp{
 		
 		//Array multiplication [Element wise, not MATRIX Multiplication]
 		array2D<T> operator*(array2D<T> &other);
+		
+		
 
 	private:
 		oneDimensionalArray var1D;
