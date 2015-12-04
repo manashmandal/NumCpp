@@ -9,6 +9,7 @@
 #include <array2D.hpp>
 #include <array3D.hpp>
 #include <stdarg.h>
+#include <cmath>
 
 using namespace std;
 
@@ -22,6 +23,14 @@ namespace numcpp{
 		typedef vector <T> oneDimensionalArray;
 		typedef vector < oneDimensionalArray > twoDimensionalArray;
 		typedef vector < twoDimensionalArray > threeDimensionalArray;
+		
+		typedef vector <int> _intOneDimensionalArray;
+		typedef vector < _intOneDimensionalArray > _intTwoDimensionalArray;
+		typedef vector < _intTwoDimensionalArray > _intThreeDimensionalArray;
+		
+		typedef vector <double> _doubleOneDimensionalArray;
+		typedef vector < _doubleOneDimensionalArray > _doubleTwoDimensionalArray;
+		typedef vector < _doubleTwoDimensionalArray > _doubleThreeDimensionalArray;
 		
 		static array1D<T> array(oneDimensionalArray arr);
 		static array2D<T> array(twoDimensionalArray arr);
@@ -52,6 +61,18 @@ namespace numcpp{
 		static array1D<T> ones(size_t col);
 		static array1D<T> zeroes(size_t col);
 		
+		//Math function for pow [pow function applied on each element]
+		static array1D<int> _pow (array1D<int> &t, int exp);
+		static array1D<double> _pow(array1D<double> &t, double exp);
+		static array2D<int> _pow(array2D<int> &t, int exp);
+		static array2D<double> _pow(array2D<double> &t, double exp);
+		
+		//Math function for sqrt
+		static array1D<double> _sqrt(array1D<int> &t);
+		static array1D<double> _sqrt(array1D<double> &t);
+		static array2D<double> _sqrt(array2D<int> &t);
+		static array2D<double> _sqrt(array2D<double> &t);
+
 		
 	};
 	
@@ -126,7 +147,98 @@ namespace numcpp{
 		return temp;
 	}
 	
+	//Math functions [math.h -> pow(base, exp)]
+	// pow for array1D<int>
+	template <class T> array1D<int> NumCpp<T>::_pow(array1D<int> &t, int exp){
+		vector <int> temp_arr(t.getColumn());
+		for (size_t i = 0; i < t.getColumn(); i++){
+			temp_arr[i] = pow(t[i], exp);
+		}
+		array1D<int> arr(temp_arr);
+		return arr;
+	}
 	
+	//pow for array1D<double>
+	template <class T> array1D<double> NumCpp<T>::_pow(array1D<double> &t, double exp){
+		vector <double> temp_arr(t.getColumn());
+		for (size_t i = 0; i < t.getColumn(); i++){
+			temp_arr[i] = pow(t[i], exp);
+		}
+		array1D<double> arr(temp_arr);
+		return arr;
+	}
+	
+	//Pow for array2D<int>
+	template <class T> array2D<int> NumCpp<T>::_pow(array2D<int> &t, int exp){
+		_intTwoDimensionalArray temp_arr (t.getRow(), _intOneDimensionalArray(t.getColumn()));
+		for (size_t i = 0; i < t.getRow(); i++){
+			for (size_t j = 0; j < t.getColumn(); j++){
+				temp_arr[i][j] = pow(t[i][j], exp);
+			}
+		}
+		array2D<int> arr(temp_arr);
+		return arr;
+	}
+	
+	//Pow for array2D<double>
+	template <class T> array2D<double> NumCpp<T>::_pow(array2D<double> &t, double exp){
+		_doubleTwoDimensionalArray temp_arr (t.getRow(), _doubleOneDimensionalArray(t.getColumn()));
+		for (size_t i = 0; i < t.getRow(); i++){
+			for (size_t j = 0; j < t.getColumn(); j++){
+				temp_arr[i][j] = pow(t[i][j], exp);
+			}
+		}
+		array2D<double> arr(temp_arr);
+		return arr;
+	}
+	
+	//Sqrt for array1D<int>
+	template <class T> array1D<double> NumCpp<T>::_sqrt(array1D<int> &t){
+		_doubleOneDimensionalArray double_arr(t.getColumn());
+		for (size_t i = 0; i < t.getColumn(); i++){
+			double place_holder = (double) t[i];
+			double_arr[i] = pow(place_holder, 0.5);
+		}
+		array1D<double> temp(double_arr);
+		return temp;
+	}
+	
+	//Sqrt for array1D<double>
+	template <class T> array1D<double> NumCpp<T>::_sqrt(array1D<double> &t){
+		_doubleOneDimensionalArray temp_arr(t.getColumn());
+		for (size_t i = 0; i < t.getColumn(); i++){
+			temp_arr[i] = pow(t[i], 0.5);
+		}
+		array1D<double> temp(temp_arr);
+		return temp;
+	}
+	
+	//Sqrt for array2D<int>
+	template <class T> array2D<double> NumCpp<T>::_sqrt(array2D<int> &t){
+		_doubleTwoDimensionalArray temp_arr(t.getRow(), _doubleOneDimensionalArray ( t.getColumn()) );
+		for (size_t i = 0; i < t.getRow(); i++){
+			for (size_t j = 0; j < t.getColumn(); j++){
+				double place_holder = (double) t[i][j];
+				temp_arr[i][j] = pow(place_holder, 0.5);
+			}
+		}
+		
+		array2D<double> arr(temp_arr);
+		return arr;
+	}
+	
+	//Sqrt for array2D<double>
+	template <class T> array2D<double> NumCpp<T>::_sqrt(array2D<double> &t){
+		_doubleTwoDimensionalArray temp_arr(t.getRow(), _doubleOneDimensionalArray ( t.getColumn()) );
+		for (size_t i = 0; i < t.getRow(); i++){
+			for (size_t j = 0; j < t.getColumn(); j++){
+				temp_arr[i][j] = pow(t[i][j], 0.5);
+			}
+		}
+		array2D<double> arr(temp_arr);
+		return arr;
+	}
+
 }
 
 

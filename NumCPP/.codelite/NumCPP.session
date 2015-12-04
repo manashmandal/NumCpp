@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCPP.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="1" Name="m_selectedTab"/>
   <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCPP.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\main.cpp" Name="FileName"/>
-      <int Value="5" Name="FirstVisibleLine"/>
-      <int Value="13" Name="CurrentLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
+      <int Value="1" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\NumCpp.hpp" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
-      <int Value="35" Name="CurrentLine"/>
+      <int Value="122" Name="FirstVisibleLine"/>
+      <int Value="138" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\array1D.hpp" Name="FileName"/>
-      <int Value="198" Name="FirstVisibleLine"/>
-      <int Value="209" Name="CurrentLine"/>
+      <int Value="100" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\array2D.hpp" Name="FileName"/>
-      <int Value="103" Name="FirstVisibleLine"/>
-      <int Value="149" Name="CurrentLine"/>
+      <int Value="204" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus\array3D.hpp" Name="FileName"/>
-      <int Value="27" Name="FirstVisibleLine"/>
-      <int Value="19" Name="CurrentLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

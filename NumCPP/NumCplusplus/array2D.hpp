@@ -65,6 +65,14 @@ namespace numcpp{
 		//Array multiplication [Element wise, not MATRIX Multiplication]
 		array2D<T> operator*(array2D<T> &other);
 		
+		//Matrix addition [Element wise]
+		array2D<T> operator+(array2D<T> &other);
+		
+		//Matrix subtraction [Element wise]
+		array2D<T> operator-(array2D<T> &other);
+		
+		//Matrix division [Element wise]
+		array2D<T> operator/(array2D<T> &other);
 		
 
 	private:
@@ -180,6 +188,42 @@ namespace numcpp{
 				temp[i][j] = (*this)[i][j] * other[i][j];
 			}
 		}
+		return temp;
+	}
+	
+	//Adds two matrix [2D array]
+	template <class T> array2D<T> array2D<T>::operator+(array2D<T> &other){
+		twoDimensionalArray t(this->getRow(), oneDimensionalArray (this->getColumn()));
+		for (size_t i = 0; i < this->getRow(); i++){
+			for (size_t j = 0; j < this->getColumn(); j++){
+				t[i][j] = (*this)[i][j] + other[i][j];
+			}
+		}
+		array2D<T> temp(t);
+		return temp;
+	}
+	
+	//Subtracts two matrix
+	template <class T> array2D<T> array2D<T>::operator-(array2D<T> &other){
+		twoDimensionalArray t(this->getRow(), oneDimensionalArray (this->getColumn()));
+		for (size_t i = 0; i < this->getRow(); i++){
+			for (size_t j = 0; j < this->getColumn(); j++){
+				t[i][j] = (*this)[i][j] - other[i][j];
+			}
+		}
+		array2D<T> temp(t);
+		return temp;
+	}
+	
+	//Division between two matrix
+	template <class T> array2D<T> array2D<T>::operator/(array2D<T> &other){
+		twoDimensionalArray t(this->getRow(), oneDimensionalArray (this->getColumn()));
+		for (size_t i = 0; i < this->getRow(); i++){
+			for (size_t j = 0; j < this->getColumn(); j++){
+				t[i][j] = (*this)[i][j] / other[i][j];
+			}
+		}
+		array2D<T> temp(t);
 		return temp;
 	}
 

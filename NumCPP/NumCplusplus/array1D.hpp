@@ -96,16 +96,12 @@ namespace numcpp{
 		
 		
 		//Operator overloading (concatenates the elements in one class variable)
-		friend array1D<T> operator+(array1D<T> first, array1D<T> second){
-			oneDimensionalArray t = first.getArray1D();
-			array1D<T> temp(t);
-			oneDimensionalArray *ref_t = &t;
-			for (size_t i = 0; i < second.getColumn(); i++){
-				ref_t->push_back(second[i]);
-			}
-			delete[] ref_t;
-			return t;
-		}
+		array1D<T> operator+(array1D<T> &other);
+		
+		//Operator overloading for adding arrays
+		array1D<T> operator+(oneDimensionalArray &other);
+		
+		//Operator overloaded for subtraction of arrays
 		
 		
 	private:
@@ -231,6 +227,28 @@ namespace numcpp{
 		for (size_t i = 0; i < var1D.size(); i++){
 			var1D[i] = t;
 		}
+	}
+	
+	//Overloaded operator for concatenation
+	 template <class T>  array1D<T> array1D<T>::operator+( array1D<T> &other){
+			oneDimensionalArray t = (*this).getArray1D();
+			array1D<T> temp(t);
+			oneDimensionalArray *ref_t = &t;
+			for (size_t i = 0; i < other.getColumn(); i++){
+				ref_t->push_back(other[i]);
+			}
+			delete[] ref_t;
+			return t;
+	}
+	
+	//Overloaded operator for adding two array1D class vectors
+	template <class T> array1D<T> array1D<T>::operator+(oneDimensionalArray &other){
+			oneDimensionalArray temp(this->getColumn());
+			for (size_t i = 0; i < this->getColumn(); i++){
+				temp[i] = (*this)[i] + other[i];
+			}
+			array1D<T> t(temp);
+			return t;
 	}
 	
 }
