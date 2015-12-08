@@ -96,7 +96,15 @@ namespace numcpp{
 		
 		
 		//Operator overloading (concatenates the elements in one class variable)
-		array1D<T> operator+(array1D<T> &other);
+		friend array1D<T> operator+(array1D<T> first, array1D<T> second){
+			oneDimensionalArray t = first.getArray1D();
+			array1D<T> temp(t);
+			oneDimensionalArray *ref_t = &t;
+			for (size_t i = 0; i < second.getColumn(); i++){
+				ref_t->push_back(second[i]);
+			}
+			return t;
+		}
 		
 		//Operator overloading for adding arrays
 		array1D<T> operator+(oneDimensionalArray &other);
@@ -229,17 +237,6 @@ namespace numcpp{
 		}
 	}
 	
-	//Overloaded operator for concatenation
-	 template <class T>  array1D<T> array1D<T>::operator+( array1D<T> &other){
-			oneDimensionalArray t = (*this).getArray1D();
-			array1D<T> temp(t);
-			oneDimensionalArray *ref_t = &t;
-			for (size_t i = 0; i < other.getColumn(); i++){
-				ref_t->push_back(other[i]);
-			}
-			delete[] ref_t;
-			return t;
-	}
 	
 	//Overloaded operator for adding two array1D class vectors
 	template <class T> array1D<T> array1D<T>::operator+(oneDimensionalArray &other){

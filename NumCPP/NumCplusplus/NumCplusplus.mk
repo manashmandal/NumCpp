@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=NumCplusplus
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP"
-ProjectPath            := "C:\Users\Manash\Documents\GitHub\NumCpp\NumCPP\NumCplusplus"
+WorkspacePath          := "C:\Users\Manash\Favorites\NumCpp\NumCPP"
+ProjectPath            := "C:\Users\Manash\Favorites\NumCpp\NumCPP\NumCplusplus"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Manash
-Date                   :=04/12/2015
+Date                   :=08/12/2015
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/g++.exe
 SharedObjectLinkerName :=C:/Qt/Qt5.5.1/Tools/mingw492_32/bin/g++.exe -shared -fPIC
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Manash/Documents/GitHub/NumCpp/NumCPP/NumCplusplus/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Manash/Favorites/NumCpp/NumCPP/NumCplusplus/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
 
