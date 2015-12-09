@@ -13,12 +13,18 @@ typedef NumCpp<int> _int;
 
 int main(void){
 	
-	array1D<int> abal1 = NumCpp<int>::array({1, 2, 3, 4});
-	array1D<int> abal2 = NumCpp<int>::array({1, 2, 3, 4});
-	array1D<int> abal3 = NumCpp<int>::array({1, 2, 3, 4});
+	auto frontSonar = _int::array({1, 2, 3, 4});
+	auto lSonar = _int::array({5, 6, 7, 8});
+	auto balSonar = _int::array({9, 10, 11, 12});
+	auto dhonSonar = _int::array({13, 14, 15, 16});
 	
-	auto abal = NumCpp<int>::concatenate(abal1, abal2, abal3);
-	abal.print();
+	
+	array2D<int>::makeSample(frontSonar);
+	
+	array2D<int>::clear();
+	
+	auto dhon = array2D<int>::makeSample(dhonSonar, balSonar, lSonar, frontSonar);
+	dhon.transpose(true).print();
 	
 	
 	

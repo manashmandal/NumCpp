@@ -1,3 +1,19 @@
+/*****
+ * LEGEND:
+ * [d] = [done]
+ * [n] = [not done]
+ * [p] = [partially done]
+ * 
+ * 
+ * TODLIST:
+ * -> Implementing Sample making subroutine [d]
+ * -> Making a copy constructor [n]
+ * -> Implement matrix operation [p]
+ * 
+ * */
+
+
+
 #ifndef ARRAY2D_H
 #define ARRAY2D_H
 
@@ -21,6 +37,15 @@ namespace numcpp{
 		array2D(twoDimensionalArray &arr);
 		array2D(oneDimensionalArray &arr);
 		array2D(threeDimensionalArray &arr);
+		
+		array2D(void){
+			
+		}
+		
+		
+		twoDimensionalArray getArray2D(void){
+			return var2D;
+		}
 		
 		//Printing subroutine
 		void print(short dimension = 2);
@@ -52,7 +77,7 @@ namespace numcpp{
 		
 		//Returns array2D class
 		array2D<T> transpose(void);
-		
+		array2D<T> transpose(bool isComposite);
 		
 		//gets column and rows
 		size_t getColumn(void) const;
@@ -74,16 +99,42 @@ namespace numcpp{
 		//Matrix division [Element wise]
 		array2D<T> operator/(array2D<T> &other);
 		
+		
+		//Makes a sample from input data
+		static array2D<T> makeSample(array1D<T> &arr){
+			tempArr.var2D.push_back(arr.getArray1D());
+			return tempArr;
+		}
+		
+		
+		template <class...Args> array2D<T> static makeSample(array1D<T> arr, Args...args){
+			auto x = makeSample(args...);
+			x.var2D.push_back(arr.getArray1D());
+			return x;
+		}
+		
+		//Clears the static array 
+		static void clear(void){
+			tempArr.var2D.clear();
+		}
 
 	private:
+		static array2D<T> tempArr;
+	
 		oneDimensionalArray var1D;
 		twoDimensionalArray var2D;
 		threeDimensionalArray var3D;
 		
 		
 		sizeShape _shape;
+		//Static array for holding static data
+
 		
 	};
+	
+	//Instanteniating the 2D array
+	template <class T> array2D<T> array2D<T>::tempArr;
+	
 	
 	template <class T> array2D<T>::array2D(twoDimensionalArray &arr){
 		var2D = arr;
@@ -155,6 +206,22 @@ namespace numcpp{
 		return _shape.row;
 	}
 	
+	//Transposes the matrix, operates on the composite class
+		template <class T> array2D<T> array2D<T>::transpose(bool isComposite){
+		size_t row = (*this).getArray2D().size();
+		size_t col = (*this).getArray2D()[0].size();
+		
+		twoDimensionalArray tempMatrix(row, oneDimensionalArray(col));
+		
+		for (size_t i = 0; i < row; i++){
+			for (size_t j = 0; j < col; j++){
+				tempMatrix[i][j] = var2D[j][i];
+			}
+		}
+		
+		array2D<T> temp(tempMatrix);
+		return temp;	
+	}
 	
 	
 	//Transposes the matrix, returns a temp class
@@ -226,6 +293,8 @@ namespace numcpp{
 		array2D<T> temp(t);
 		return temp;
 	}
+	
+
 
 }
 
