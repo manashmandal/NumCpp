@@ -52,7 +52,7 @@ void loop()
 
 	delay(500);
 
-	for (int i = 0; i < 70; i++) {
+	for (int i = 0; i < 50; i++) {
 
 		int front = frontSonar.ping_cm();
 		int left = leftSonar.ping_cm();
@@ -62,17 +62,23 @@ void loop()
 		leftReading.push_back(left);
 		rightReading.push_back(right);
 
+
 		_delay_us(10);
 	}
 
-	delay(500);
+	auto another = array2D<int>::makeSample(rightReading, leftReading, frontReading);
 
-	cout << "Left " << " Front " << " Right " << endl;
-	array2D<int>::makeSample(rightReading, leftReading, frontReading).transpose(true).print();
+	another.transpose(true).print();
 
-	delay(500);
 
 	array2D<int>::clear();
+
+	//cout << "Left " << " Front " << " Right " << endl;
+	//array2D<int>::makeSample(rightReading, leftReading, frontReading).transpose(true).print();
+
+	//delay(500);
+
+	//array2D<int>::clear();
 
 
 
