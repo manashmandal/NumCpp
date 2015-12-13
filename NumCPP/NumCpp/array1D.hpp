@@ -111,6 +111,11 @@ namespace numcpp{
 		
 		//Operator overloaded for subtraction of arrays
 		
+		//Pushing element in array
+		void push_back(T t);
+
+		//Updates the shape 
+		void updateOneDimensionalArray(void);
 		
 	private:
 		oneDimensionalArray var1D;
@@ -246,6 +251,17 @@ namespace numcpp{
 			}
 			array1D<T> t(temp);
 			return t;
+	}
+
+	//Pushing element in one dimensional array
+	template <class T> void array1D<T>::push_back(T t) {
+		var1D.push_back(t);
+		updateOneDimensionalArray();
+	}
+
+	//Update the array
+	template <class T> void array1D<T>::updateOneDimensionalArray(void) {
+		_shape.column = var1D.size();
 	}
 	
 }
