@@ -40,7 +40,7 @@ namespace numcpp{
 		array1D(oneDimensionalArray &arr);
 		array1D(twoDimensionalArray &arr);
 		array1D(threeDimensionalArray &arr);
-		
+		array1D(void);
 		
 		//array1D(void) {}
 		//Copy Constructor
@@ -146,7 +146,8 @@ namespace numcpp{
 		_shape.height = var3D[0][0].size();
 	}
 	
-	
+	//Ctor
+	template <class T> array1D<T>::array1D(void) {}
 	
 	
 	//Printing Definition

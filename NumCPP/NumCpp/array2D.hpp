@@ -37,11 +37,8 @@ namespace numcpp{
 		array2D(twoDimensionalArray &arr);
 		array2D(oneDimensionalArray &arr);
 		array2D(threeDimensionalArray &arr);
-		
-		array2D(void){
-			
-		}
-		
+		array2D(void);
+
 		
 		twoDimensionalArray getArray2D(void){
 			return var2D;
@@ -120,6 +117,9 @@ namespace numcpp{
 			tempArr.var2D.clear();
 		}
 
+		//Update the size
+		void updateSize(void);
+
 	private:
 		static array2D<T> tempArr;
 	
@@ -137,6 +137,9 @@ namespace numcpp{
 	//Instanteniating the 2D array
 	template <class T> array2D<T> array2D<T>::tempArr;
 	
+	//Ctors
+
+	template <class T> array2D<T>::array2D(void) {}
 	
 	template <class T> array2D<T>::array2D(twoDimensionalArray &arr){
 		var2D = arr;
@@ -210,8 +213,8 @@ namespace numcpp{
 	
 	//Transposes the matrix, operates on the composite class
 		template <class T> array2D<T> array2D<T>::transpose(bool isComposite){
-		size_t row = (*this).getArray2D().size();
-		size_t col = (*this).getArray2D()[0].size();
+		size_t row = (*this).getArray2D()[0].size();
+		size_t col = (*this).getArray2D().size();
 		
 		twoDimensionalArray tempMatrix(row, oneDimensionalArray(col));
 		
@@ -308,7 +311,10 @@ namespace numcpp{
 		return temp;
 	}
 	
-
+	template <class T> void array2D<T>::updateSize(void) {
+		_shape.column = var2D.size();
+		_shape.row = var2D[0].size();
+	}
 
 }
 
