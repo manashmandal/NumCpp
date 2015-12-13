@@ -99,6 +99,8 @@ namespace numcpp{
 		//Matrix division [Element wise]
 		array2D<T> operator/(array2D<T> &other);
 		
+		//Matrix modulo [Element wise]
+		array2D<T> operator%(array2D<T> &other);
 		
 		//Makes a sample from input data
 		static array2D<T> makeSample(array1D<T> &arr){
@@ -288,6 +290,18 @@ namespace numcpp{
 		for (size_t i = 0; i < this->getRow(); i++){
 			for (size_t j = 0; j < this->getColumn(); j++){
 				t[i][j] = (*this)[i][j] / other[i][j];
+			}
+		}
+		array2D<T> temp(t);
+		return temp;
+	}
+
+	//Modulo between two matrix
+	template <class T> array2D<T> array2D<T>::operator%(array2D<T> &other) {
+		twoDimensionalArray t(this->getRow(), oneDimensionalArray(this->getColumn()));
+		for (size_t i = 0; i < this->getRow(); i++) {
+			for (size_t j = 0; j < this->getColumn(); j++) {
+				t[i][j] = (*this)[i][j] % other[i][j];
 			}
 		}
 		array2D<T> temp(t);
