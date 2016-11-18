@@ -22,7 +22,7 @@ vector<string> strings;
 void setup(void)
 {
   Serial.begin(9600);
-  cout << "Balsal" << endl;
+  cout << "They see me printing, they hatin'" << endl;
   
   auto x = _int::array({1, 2, 3, 4, 5, 6});
   auto y = _int::array({{1, 2, 3},
